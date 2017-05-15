@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <h3>Welcome to {{ nameOfStore }}</h3>
+    <a href="/1/{{ nameOfStore }}/">Personal Care</a><br/>
+    <a href="/2/{{ nameOfStore }}/">Grains</a><br/>
+    <a href="/3/{{ nameOfStore }}/">Detergent</a><br/>
+    <a href="/4/{{ nameOfStore }}/">Spices</a><br/>
+</div>
+
+{% endblock %}

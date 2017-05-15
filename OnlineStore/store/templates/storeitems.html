@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h3>Welcome to {{ storename }}</h3>
+    {% for item in itemsList %}
+        <p>Product Name: {{ item.0 }}</p>
+        <p>Product Price: {{ item.1 }}</p></br>
+    {% endfor %}
+{% endblock %}
