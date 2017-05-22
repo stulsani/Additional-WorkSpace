@@ -19,6 +19,9 @@ def store(request):
 def location(request):
     return render(request, 'location.html', {})
 
+
+@csrf_exempt
+@api_view(['GET','POST'])
 def searchedlocation(request):
     if request.method == 'GET':
         geolocator = Nominatim()
@@ -35,13 +38,13 @@ def searchedlocation(request):
         fromDatabase = (lat, long)
         myDistance = great_circle(userEnteredSearch, fromDatabase).miles
         if myDistance < 10:
-            storeObject = [object.name,object.address,object.id]
-            storeList.append(storeObject)
+            #storeObject = [object.name,object.address,object.id]
+            #storeList.append(storeObject)
+            storeList.append(object)
 
-    context = {
-        'storeList': storeList
-    }
-    return render(request, 'storedetails.html', context)
+    serializers = StoreSerializer(storeList, many=True)
+    return Response(serializers.data)
+    #return render(request, 'storedetails.html', {'storeList': storeList} )
 
 def storecontains(request, store_id):
     nameOfStore = ''
