@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous">
+    </script>
+    <!-- <link rel="stylesheet" type="text/css" href="..css/style.css.css" /> -->
+    <title>Title</title>
+</head>
+<body>
+
+
+    <div class="g_image">
+        <div class="sl">
+            <h2>Search for the Location</h2>
+            <form method="GET" action="https://onlinegrocerystore.herokuapp.com/searchedlocation1/">
+                Enter Location: <input type="text" name="locationentered"><br>
+            <input type="submit">
+            </form>
+    </div>
+
+        <div class="locate_me">
+
+            <h2>To Locate your position press this below button</h2>
+        <button action = "GET" onclick="getLocation()">Locate Me</button>
+
+        <p id="demo"></p>
+
+        <script>
+        $.extend({
+            redirectPost: function(location, lat,long)
+            {
+                $.post(location,
+                {
+                  'lat' : lat,
+                  'long': long
+                },
+                function(data,status){
+                  console.log(JSON.stringify(data));
+                }, 'json');
+            }
+        });
+
+        var x = document.getElementById("demo");
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                x.innerHTML = "Geolocation is not supported by this browser.";
+            }
+        }
+        function showPosition(position) {
+            var lat = position.coords.latitude;
+            var long = position.coords.longitude;
+             $.redirectPost("https://onlinegrocerystore.herokuapp.com/searchedlocation/",lat,long)
+
+        }
+        </script>
+        </div>
+    </div>
+  </body>
+  </html>
