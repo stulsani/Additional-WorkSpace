@@ -5,11 +5,13 @@
 <input [value] = "myString" />
 <input [required] = "myBoolean" />
 
-<button (click)="alertMe('I like Playing Cricket')">Click Me</button>
 
 <label>First Name: </label>
 <input [(ngModel)]="game.fname" />
 <label>Last Name: </label>
-<input [([(ngModel)]="game.lname" />
+<input [(ngModel)]="game.lname" />
 <p>{{ game.fname }}</p>
 <p>{{ game.lname }}</p>
+<h3>Data from other Component</h3>
+<p>{{ food.name }}</p>
+<p>{{ food.category }}</p>

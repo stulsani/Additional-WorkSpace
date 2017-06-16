@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'app-home',
@@ -10,14 +10,13 @@ export class HomeComponent implements OnInit {
   myString = 'Sumeet Loves Chicken';
   myBoolean = true;
 
-  alertMe(val){
-    alert(val);
-  }
 
   game = {
     fname: 'Sumeet',
     lname: 'Tulsani'
   };
+
+  @Input() food;
 
   constructor() { }
 
