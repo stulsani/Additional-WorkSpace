@@ -12,6 +12,8 @@
 <input [(ngModel)]="game.lname" />
 <p>{{ game.fname }}</p>
 <p>{{ game.lname }}</p>
-<h3>Data from other Component</h3>
+<h3>Data from Parent Component to Child Component</h3>
 <p>{{ food.name }}</p>
 <p>{{ food.category }}</p>
+<h3>Data from Child Component to Parent Component</h3>
+<button (click)="fireBellEvent($event)">Hit the Bell to Ring</button>

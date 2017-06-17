@@ -12,4 +12,8 @@ export class AppComponent {
     name: 'Paneer',
     category: 'Vegeterian'
   };
+
+  bell(e){
+    alert('I am Belling!!');
+  }
 }
