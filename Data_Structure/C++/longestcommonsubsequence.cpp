@@ -7,6 +7,7 @@ using namespace std;
 void LCS(vector <int> v1, vector <int> v2){
     int l1 = v1.size(),l2 = v2.size();
     vector <vector <int> > v(l1+1,vector<int> (l2+1));
+    vector <int> ans;
     for(int i=0;i <= l1;i++){
         for(int j=0;j <= l2;j++){
             if(i == 0 || j == 0) v[i][j] = 0;
@@ -16,6 +17,18 @@ void LCS(vector <int> v1, vector <int> v2){
         }
     }
     cout << "Longest Comman Subsequence length: " << v[l1][l2] << endl;
+    cout << "Displaying the subsequence: " << endl;
+    while(l1 != 0 && l2 != 0){
+        if(v[l1][l2] == v[l1][l2-1]) l2--;
+        else if(v[l1][l2] == v[l1-1][l2]) l1--;
+        else if(v[l1][l2] == (1 + v[l1-1][l2-1])){
+            ans.push_back(v1[l1-1]);
+            l1--;l2--;
+        }
+    }
+    for(int k=ans.size()-1;k >= 0;k--)
+        cout << ans[k] << " ";
+    cout << endl;
 }
 
 int main() {
