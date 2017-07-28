@@ -1,31 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  function getJSONP(url, success) {
-
-      var ud = '_' + +new Date,
-          script = document.createElement('script'),
-          head = document.getElementsByTagName('head')[0]
-                 || document.documentElement;
-
-      window[ud] = function(data) {
-          head.removeChild(script);
-          success && success(data);
-      };
-
-      script.src = url.replace('callback=?', 'callback=' + ud);
-      head.appendChild(script);
-
-  }
-
-  getJSONP('http://soundcloud.com/oembed?url=http%3A//soundcloud.com/forss/flickermood&format=js&callback=?', function(data){
-      console.log(data);
-  });  
+    <meta charset="UTF-8">
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous">
+    </script>
+    <!-- <link rel="stylesheet" type="text/css" href="..css/style.css.css" /> -->
+    <title>Title</title>
 </head>
 <body>
 
-<button>Get JSON data</button>
-<div></div>
+  <h3>Hello There</h3>
+  <div id="result"> </div>
+  <script>
+    document.getElementById("result").innerHTML = localStorage.getItem("storejson");
+  </script>
 
 </body>
 </html>

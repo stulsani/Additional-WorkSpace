@@ -16,50 +16,21 @@
     <div class="g_image">
         <div class="sl">
             <h2>Search for the Location</h2>
-            <form method="GET" action="https://onlinegrocerystore.herokuapp.com/searchedlocation1/">
+            <form method="GET" action="https://onlinegrocerystore.herokuapp.com/searchedlocation/">
                 Enter Location: <input type="text" name="locationentered"><br>
             <input type="submit">
             </form>
-    </div>
+        </div>
 
         <div class="locate_me">
 
             <h2>To Locate your position press this below button</h2>
-        <button action = "GET" onclick="getLocation()">Locate Me</button>
+            <button action = "GET" onclick="getLocation()">Locate Me</button>
 
-        <p id="demo"></p>
+            <p id="demo"></p>
 
-        <script>
-        $.extend({
-            redirectPost: function(location, lat,long)
-            {
-                $.post(location,
-                {
-                  'lat' : lat,
-                  'long': long
-                },
-                function(data,status){
-                  console.log(JSON.stringify(data));
-                }, 'json');
-            }
-        });
-
-        var x = document.getElementById("demo");
-        function getLocation() {
-            if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
-            } else {
-                x.innerHTML = "Geolocation is not supported by this browser.";
-            }
-        }
-        function showPosition(position) {
-            var lat = position.coords.latitude;
-            var long = position.coords.longitude;
-             $.redirectPost("https://onlinegrocerystore.herokuapp.com/searchedlocation/",lat,long)
-
-        }
-        </script>
         </div>
     </div>
   </body>
+  <script src="../js/location.js"> </script>
   </html>
