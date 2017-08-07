@@ -33,7 +33,6 @@ unordered_map<string,vector<int> > compressFunc(string para){
 int main(){
   string para = "This is a good time to do this thing which is a good thing to do";
   unordered_map<string,vector<int> > mymapcompressed = compressFunc(para);
-  string origpara = decompressFunc(mymapcompressed,para.size());
-  cout << "Orignal Para: " << origpara << endl;
+  cout << "Orignal Para: " << decompressFunc(mymapcompressed,para.size()) << endl;
   return 0;
 }
