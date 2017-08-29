@@ -27,7 +27,10 @@ int palindromeSubStrs(string a)
 // Driver program
 int main()
 {
-	int r = palindromeSubStrs("hellollo");
-	cout << r;
+	string s;
+	cout << "Enter String: " << endl;
+	cin >> s;
+	int r = palindromeSubStrs(s);
+	cout << r << endl;
 	return 0;
 }
